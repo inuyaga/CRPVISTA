@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="674.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VistaPrincipalController">
+   <children>
+      <TableView fx:id="TABLAVENTAS" layoutX="3.0" layoutY="115.0" prefHeight="376.0" prefWidth="668.0">
+        <columns>
+          <TableColumn fx:id="COLNUMEROCLIENTE" prefWidth="75.0" text="#Cliente" />
+          <TableColumn fx:id="COLCLIENTE" prefWidth="302.0" text="Nombre Cliente" />
+            <TableColumn fx:id="COLVENTA" prefWidth="94.0" text="Venta" />
+            <TableColumn fx:id="COLRUTA" prefWidth="87.0" text="Ruta" />
+            <TableColumn fx:id="COLCLAVE" prefWidth="113.0" text="Clave" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="CLICDERECHO" mnemonicParsing="false" onAction="#GUARDARCOMENTARIO" text="AGREGAR COMENTARIO" />
+                  <MenuItem mnemonicParsing="false" onAction="#AGREGARVENTA" text="SOLICITAR AGREGAR VENTA A LA RUTA" />
+                  <MenuItem mnemonicParsing="false" onAction="#ELIMINARVENTA" text="SOLICITAR ELIMINAR VENTA A LA RUTA" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <HBox layoutY="35.0" prefHeight="66.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+         <children>
+            <VBox prefHeight="66.0" prefWidth="165.0">
+               <children>
+                  <Label text="Clave Vendedor" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtvendedor" prefHeight="26.0" prefWidth="134.0" promptText="Clave vendedor" />
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="66.0" prefWidth="184.0">
+               <children>
+                  <Label text="Ruta" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtruta" disable="true" prefHeight="26.0" prefWidth="151.0" promptText="Ruta" />
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <CheckBox fx:id="CHKconruta" mnemonicParsing="false" onAction="#ClicSobreCHK" text="Con Ruta" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="btngenerar" mnemonicParsing="false" onAction="#Generar_Reporte" text="Generar">
+               <HBox.margin>
+                  <Insets top="13.0" />
+               </HBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK_SQUARE" size="18" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Generar Reporte" />
+               </tooltip>
+            </Button>
+         </children>
+      </HBox>
+      <FontAwesomeIconView fill="WHITE" glyphName="POWER_OFF" layoutX="644.0" layoutY="29.0" onMouseClicked="#AccionSalir" size="30" styleClass="efecto" />
+   </children>
+</AnchorPane>
